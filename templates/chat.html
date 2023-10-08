@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <!-- Add your CSS styles here -->
+</head>
+<body>
+    <h1>Chat with Jessica</h1>
+    <form method="POST">
+        <label for="user_input">You:</label>
+        <input type="text" id="user_input" name="user_input" value="{{ user_input }}" required>
+        <input type="submit" value="Send">
+    </form>
+    <p>Jessica: {{ response }}</p>
+    
+    <!-- Add audio playback element -->
+    <div class="audio-player">
+        {% if audio_content %}
+        <audio controls>
+            <source src="data:audio/mpeg;base64,{{ audio_content|b64encode }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        {% endif %}
+    </div>
+
+    <!-- Add your JavaScript for animations if needed -->
+</body>
+</html>
